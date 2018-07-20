@@ -38,5 +38,5 @@
     }
 
     function auth() {
-        window.location.href = "$authtarget";
+        window.location.href = auth_target;
     }
