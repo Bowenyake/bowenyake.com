@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <link href="https://cdn.bootcss.com/mdui/0.4.1/css/mdui.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/mdui/0.4.1/js/mdui.min.js"></script>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script>const auth_target = "$authtarget";</script>
+    <link href="https://cdn.bootcss.com/mdui/0.4.1/css/mdui.min.css" rel="stylesheet">
+    <script src="/auth.js"></script>
+    <script src="https://cdn.bootcss.com/mdui/0.4.1/js/mdui.min.js"></script>
     <style>
         div.card {
             padding-top: 35px;
@@ -16,11 +19,11 @@
             overflow: scroll;
         }
     </style>
-    <title>欢迎光临金和牙科门诊</title>
+    <title>欢迎光临博文（金和）牙科门诊</title>
 </head>
 <body class="mdui-theme-primary-indigo mdui-theme-accent-pink">
 <div class="mdui-toolbar mdui-color-theme">
-    <span class="mdui-typo-title mdui-center">金和牙科门诊部无线网络</span>
+    <span class="mdui-typo-title mdui-center">博文（金和）牙科门诊部无线网络</span>
 </div>
 <div class="mdui-container-fluid card">
     <div class="mdui-row">
@@ -90,51 +93,7 @@
     </div>
 </div>
 <div class="mdui-bottom-nav mdui-bottom-nav-text-auto mdui-color-theme">
-    <span class="mdui-typo-caption-opacity mdui-valign">博文（金和）牙科门诊部©️版权所有</span>
+    <span class="mdui-typo-caption-opacity mdui-valign mdui-center">博文（金和）牙科门诊部©️版权所有</span>
 </div>
-<script>
-    var $$ = mdui.JQ;
-    $$('.scroll').on('scroll', function (e) {
-        var target = e.target;
-        if (target.scrollHeight - target.scrollTop === target.clientHeight) {
-            // Change Button
-            document.getElementById('agree').removeAttribute('disabled')
-        }
-    })
-
-    function agree() {
-        mdui.confirm('我已经仔细阅读条款并确认我了解并认可其中全部内容', '服务条款确认',
-            function () {
-                snack()
-            },
-            function () {
-                // Cancel
-            }, {
-                'confirmText': '确认，开始上网',
-                'cancelText': '让我再想想……'
-            }
-        );
-    }
-
-    function snack() {
-        mdui.snackbar({
-            message: '服务条款确认！正在跳转至首页……',
-            buttonText: '好的',
-            onClick: function () {
-                auth()
-            },
-            onButtonClick: function () {
-                auth()
-            },
-            onClose: function () {
-                auth()
-            }
-        });
-    }
-
-    function auth() {
-        window.location.href = "$authtarget";
-    }
-</script>
 </body>
 </html>
