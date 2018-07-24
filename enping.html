@@ -94,8 +94,7 @@
     <span class="mdui-typo-caption-opacity mdui-valign mdui-center">博文（恩平）牙科门诊部©️版权所有</span>
 </div>
 <script>
-    var $$ = mdui.JQ;
-    $$('.scroll').on('scroll', function (e) {
+    document.getElementsByClassName('scroll')[0].addEventListener('scroll', function(e){
         var target = e.target;
         if (target.scrollHeight - target.scrollTop === target.clientHeight) {
             // Change Button
